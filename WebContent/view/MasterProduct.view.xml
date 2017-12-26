@@ -1,10 +1,13 @@
 <core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+controllerName="smax.batch26.splitApp.controller.MasterProduct"
 		 xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="Master Product">
 		<content>
 	        <List items="{/ProductSet}">
 	          <items>
-	             <StandardListItem title="{ProductID}"/>
+	             <StandardListItem title="{ProductID}"
+	             type="Navigation" press="onItemSelection"
+	             />
 	          </items>
 	        </List>
 		</content>

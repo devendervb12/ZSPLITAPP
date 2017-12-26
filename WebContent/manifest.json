@@ -26,6 +26,11 @@
         	"pattern" : "",
         	"name" : "default",
         	"target" : ["mPage", "dPage"]
+        	},
+        	{
+        	"pattern" : "toDetail/{pid}",
+        	"name" : "detail",
+        	"target" : ["dPage"]
         	}
         
         ],
