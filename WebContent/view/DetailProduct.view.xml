@@ -7,5 +7,14 @@ controllerName = "smax.batch26.splitApp.controller.DetailProduct"
 	          <Text text="{Name}"/>
 	          
 		</content>
+		<footer>
+		  <Bar>
+		     <contentLeft>
+		          <Button text="Create" press="onCreate"/>
+		          <Button text="Update"/>
+		          <Button text="Delete"/>
+		     </contentLeft>
+		  </Bar>
+		</footer>
 	</Page>
 </core:View>

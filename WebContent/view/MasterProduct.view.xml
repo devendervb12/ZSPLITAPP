@@ -3,7 +3,7 @@ controllerName="smax.batch26.splitApp.controller.MasterProduct"
 		 xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="Master Product">
 		<content>
-	        <List items="{/ProductSet}">
+	        <List items="{/ProductSet}" id="idList">
 	          <items>
 	             <StandardListItem title="{ProductID}"
 	             type="Navigation" press="onItemSelection"

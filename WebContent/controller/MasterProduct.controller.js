@@ -5,10 +5,23 @@ sap.ui.controller("smax.batch26.splitApp.controller.MasterProduct", {
 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 * @memberOf view.MasterProduct
 */
-//	onInit: function() {
-//
-//	},
-
+	onInit: function() {
+        
+		//getting the reference of List
+		var olist = this.getView().byId("idList");
+		
+		// Once the list is loaded with data fire press event of first selection
+		
+		olist.attachUpdateFinished(function(){
+		//	debugger;
+			this.getView().byId("idList").getItems()[0].firePress();
+			
+			
+		}, this);
+		
+		
+	},
+ 
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 * (NOT before the first rendering! onInit() is used for that one!).
@@ -36,7 +49,7 @@ sap.ui.controller("smax.batch26.splitApp.controller.MasterProduct", {
 //	}
 	
 	onItemSelection : function(oEvent){
-		debugger;
+		//debugger;
 		var prodID = oEvent.getSource().getTitle();
 	
 		this.getOwnerComponent().getRouter(this).navTo("detail", {pid : prodID});

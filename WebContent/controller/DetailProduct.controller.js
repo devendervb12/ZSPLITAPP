@@ -16,31 +16,65 @@ sap.ui.controller("smax.batch26.splitApp.controller.DetailProduct", {
 		},this)
 
 	},
+     
+	onCreate : function(){
+		
+		var oDialog = new sap.m.Dialog({
+			title : "Create Product",
+			content : [
+				new sap.m.Label({ text : "Product ID"}),
+				new sap.m.Input(),
+				new sap.m.Label({ text : "Name"}),
+				new sap.m.Input(),
+				new sap.m.Label({ text : "Description"}),
+				new sap.m.Input(),
+				new sap.m.Label({ text : "Category"}),
+				new sap.m.Input(),
+				new sap.m.Label({ text : "Supplier ID"}),
+				new sap.m.Input()
+			],
+			buttons : [
+				new sap.m.Button({ text : "Save and Close", press : function(oEvent){
+					//collect the data
+					
+					var data = {
+						ProductID : oEvent.getSource().getParent().getContent()[1].getValue(),
+						Name : oEvent.getSource().getParent().getContent()[3].getValue(),
+						Description : oEvent.getSource().getParent().getContent()[5].getValue(),
+						Category : oEvent.getSource().getParent().getContent()[7].getValue(),
+						SupplierID : oEvent.getSource().getParent().getContent()[9].getValue()
+					}					
+					//save data in SAP
+					debugger;				
+					var oModel = this.getOwnerComponent().getModel();
+					
+					oModel.create("/ProductSet", data, {
+						success : function(){ 
+							sap.m.MessageToast.show("Data Saved")
+						}
+					})
+					
+					                         
+					                               oEvent.getSource().getParent().close();
+				                }.bind(this)}),
+			
+				                
+				                
+				                
+				                
+				                
+				                
+				                
+				                
+				                new sap.m.Button({ text : "Cancel", press : function(oEvent){
+																oEvent.getSource().getParent().close();			
+												} })
+			]
+		});
+		
+	
+		oDialog.open();
+	}
 
-/**
-* Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
-* (NOT before the first rendering! onInit() is used for that one!).
-* @memberOf view.DetailProduct
-*/
-//	onBeforeRendering: function() {
-//
-//	},
-
-/**
-* Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
-* This hook is the same one that SAPUI5 controls get after being rendered.
-* @memberOf view.DetailProduct
-*/
-//	onAfterRendering: function() {
-//
-//	},
-
-/**
-* Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-* @memberOf view.DetailProduct
-*/
-//	onExit: function() {
-//
-//	}
 
 });
